@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- essa parte permite que toda a aplicação se adapte para dispositivos de telas menores  -->
+    <title> Lorandi Imóveis</title> <!-- esse title tem a função de dar o nome que fica na aba da página -->
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="http://www.rodrigolorandi.com.br/images/favicon.png?v=2" />
+
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/map.css" />
+    <link rel="stylesheet" href="/css/imoveis.css" />
+    <link rel="stylesheet" href="/css/carrossel.css" />
+    <link rel="stylesheet" href="/css/container-icones-infos.css" />
+
+</head>
+
+
+
+<body>
+    <div class="imoveis">
+        {{#each imoveis}}
+        <span hidden 
+        data-id="{{this.id}}" 
+        data-tipo="{{this.tipo}}" 
+        data-quartos="{{this.quartos}}"
+        data-banheiros="{{this.banheiros}}" 
+        data-vagas="{{this.vagas}}"
+
+        data-areaUtil="{{this.areaUtil}}"  
+        data-areaTotal="{{this.areaTotal}}"
+
+        data-cep="{{this.cep}}"
+        data-logradouro="{{this.logradouro}}"
+        data-bairro="{{this.bairro}}" 
+
+        data-lat="{{this.lat}}"
+        data-lng="{{this.lng}}"
+
+        data-venda="{{this.venda}}"
+        data-condominio="{{this.condominio}}"
+        data-iptu="{{this.iptu}}" 
+
+        data-codigo="{{this.codigo}}"
+        data-titulo="{{this.titulo}}"
+        data-descricao="{{this.descricao}}" 
+
+        data-fotos="{{this.fotos}}"
+        >
+        </span>
+        {{/each}}
+    </div>
+    <header>
+        <div class="logo">
+            <img class="animate-up" id="logo" src="/images/logo.png" alt="Lorandi Imoveis"
+                onclick=" window.open('/')" />
+        </div>
+        <div class="slogan">
+            <h1 class="animate-up ">Há 50 anos vivendo a Zona Sul</h1>
+        </div>
+    </header>
+    <banner>
+        <div class="banner">
+            <div class="busca">
+                <div class="qual">
+                    <h2>Buscar imóvel:</h2>
+                </div>
+
+                <div class="tipo">
+                    <label for="tipo-imovel">
+                        <h3>Tipo?</h3>
+                    </label>
+                    <p></p>
+                    <select id="tipo-imovel">
+                        <option label="Todos os tipos"></option>
+                        <option label="Casa"></option>
+                        <option label="Apartamentos"></option>
+                        <option label="Casa em condomíno"></option>
+                        <option label="Terreno"></option>
+                    </select>
+                </div>
+
+                <div class="bairro">
+                    <h3>Bairro?</h3>
+                    <p></p>
+                    <div class="input-block">
+                        <select id="bairro">
+                            <option label="Todos os bairros"></option>
+                            <option label="Ipanema"></option>
+                            <option label="Guarujá"></option>
+                            <option label="Cavalhada"></option>
+                            <option label="Triteza"></option>
+                            <option label="Ponta Grossa"></option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <button type="button" onclick="" class="botao-buscar">
+                    Buscar
+                </button>
+            </div>
+        </div>
+    </banner>
+
+    <main>
+        
+        <section class="imoveis-container">
+            <div class="card-imoveis">
+                
+                <div class="carrossel">
+                    <!-- Slideshow container -->
+                    <div class="slideshow-container">                      
+           
+                        <!-- Full-width images with number and caption text -->
+                        <div class="mySlides fade">
+                            <!-- <div class="numbertext">1 / 3</div> -->
+                            <img class="imagem" src="images\banner.jpg">
+                            <!-- <div class="text">Caption Text</div> -->
+                        </div>
+
+                        <div class="mySlides fade">
+                            <!-- <div class="numbertext">2 / 3</div> -->
+                            <img class="imagem" src="images\fotos_imoveis\casa\4.jpeg">
+                            <!-- <div class="text">Caption Two</div> -->
+                        </div>
+
+                        <div class="mySlides fade">
+                            <!-- <div class="numbertext">3 / 3</div> -->
+                            <img class="imagem" src="images\fotos_imoveis\casa\5.jpeg">
+                            <!-- <div class="text">Caption Three</div> -->
+                        </div>
+                    </div>
+
+                    <!-- Next and previous buttons -->
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+
+
+                <div class="resumo-imoveis">
+                    <h2 class="valor">R$1.205,00</h2>
+                    <h3 class="descrição">ALTO PADRÃO EM CONDOMÍNIO DE APENAS 5 CASAS </h3>
+                    <h4 class="bairro">Ipanema </h4>
+                    <div class="infos">
+                        <div class="container-infos-imovel">
+                            <div class="quarto">
+                                <img id="icon-quarto" src="images/quarto.png">
+                                <p id="quarto"> {{quartos}} quartos</p>
+                            </div>
+
+                            <div class="WC">
+                                <img id="icon-wc" src="images/wc.png">
+                                <p id="WC"> {{banheiros}} banheiros</p>
+                            </div>
+
+                            <div class="garagem">
+                                <img id="icon-garagem" src="images/garagem.png">
+                                <p id="garagem"> {{vagas}} vagas</p>
+                            </div>
+
+                            <div class="tamanho">
+                                <img id="icon-tamanho" src="images/tamanho.png">
+                                <p id="tamanho">{{area}}m²</p>
+                            </div>
+                        </div>
+
+                        <div class="mais-infos">
+                            <button class="botao-mais-infos" onclick=" window.open('/imovel','_blank')">Mais
+                                informações</button>
+                            <a href="https://api.whatsapp.com/send?l=pt_BR&phone=+5551999666863&text=Oi, quero conversar sobre visitas no imóvel"
+                                target="_blank" class="whatsapp" type="button">
+                                <img id="whatsapp" src="/images/whatsapp.png" alt="Chamar no whatsapp">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+           
+            </div>
+        </section>
+       
+
+
+
+        <div class="map-container">
+            <div id="mapid">   
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Rua Dea Coufal, 1200 - Ipanema - Porto Alegre - RS</p>
+        <p>Fone/Whatsapp: (51) 99966.6863</p>
+        <p>contato@lorandi.com.br</p>
+    </footer>
+    <script src=scripts/carrossel.js></script>
+    <script src=/scripts/index.js></script>
+    </body>
+
+</html>

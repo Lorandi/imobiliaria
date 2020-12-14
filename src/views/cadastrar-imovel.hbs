@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- essa parte permite que toda a aplicação se adapte para dispositivos de telas menores  -->
+  <title>Cadastrar imóvel</title>
+  <!-- esse title tem a função de dar o nome que fica na aba da página -->
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin="" />
+
+  <!-- Make sure you put this AFTER Leaflet's CSS -->
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <link rel="icon" href="http://www.rodrigolorandi.com.br/images/favicon.png?v=2" />
+
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="/css/map.css" />
+  <link rel="stylesheet" href="/css/imoveis.css" />
+  <link rel="stylesheet" href="/css/cadastrar-imovel.css" />
+  <link rel="stylesheet" href="/css/form-contato.css" />
+
+
+</head>
+
+
+<body>
+  <div id="cadastrar-imovel">
+    <header>
+      <h1>Cadastro de imóvel</h1>
+    </header>
+
+    <main>
+      <form action="salvar-imovel" method="post" onsubmit="validate()">
+        <div class="duas-colunas-50-50">
+          <fieldset class="sobre-imovel">
+            <legend class="">Sobre o imóvel</legend>
+            <div class="input-block">
+              <label for="tipo">Tipo de imóvel</label>
+              <select id="tipo" name="tipo" required>
+                <option label="Todos os tipo" value="Todos_os_tipos"></option>
+                <option label="Casa" value="Casa"></option>
+                <option label="Casa em condomínio" value="Casa em condominio"></option>
+                <option label="Apartamento" value="Apartamento"></option>
+                <option label="Terreno" value="Terreno"></option>
+                <option label="Sítio" value="Sitio"></option>
+                <option label="Loja/sala comercial" value="Comercial"></option>
+              </select>
+            </div>
+            <div class="input-block">
+              <div class="quarto-banheiro-garagem">
+                <div class="quartos">
+                  <label for="quartos">Quartos</label>
+                  <select id="quartos" name="quartos" required>
+                    <option label="0" value="0"></option>
+                    <option label="1" value="1"></option>
+                    <option label="2" value="2"></option>
+                    <option label="3" value="3"></option>
+                    <option label="4" value="4"></option>
+                    <option label="5" value="5"></option>
+                    <option label="6" value="6"></option>
+                    <option label="7" value="7"></option>
+                    <option label="8" value="8"></option>
+                    <option label="9" value="9"></option>
+                    <option label="10" value="10"></option>
+                  </select>
+                </div>
+
+                <div class="banheiros">
+                  <label for="banheiros">Banheiros</label>
+                  <select id="banheiros" name="banheiros" required>
+                    <option label="0" value="0"></option>
+                    <option label="1" value="1"></option>
+                    <option label="2" value="2"></option>
+                    <option label="3" value="3"></option>
+                    <option label="4" value="4"></option>
+                    <option label="5" value="5"></option>
+                    <option label="6" value="6"></option>
+                    <option label="7" value="7"></option>
+                    <option label="8" value="8"></option>
+                    <option label="9" value="9"></option>
+                    <option label="10" value="10"></option>
+                  </select>
+                </div>
+
+                <div class="vagas">
+                  <label for="vagas">Vagas</label>
+                  <select id="vagas" name="vagas" required>
+                    <option label="0" value="0"></option>
+                    <option label="1" value="1"></option>
+                    <option label="2" value="2"></option>
+                    <option label="3" value="3"></option>
+                    <option label="4" value="4"></option>
+                    <option label="5" value="5"></option>
+                    <option label="6" value="6"></option>
+                    <option label="7" value="7"></option>
+                    <option label="8" value="8"></option>
+                    <option label="9" value="9"></option>
+                    <option label="10" value="10"></option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="input-block">
+              <label for="areaUtil"> Área útil</label>
+              <input id="areaUtil" name="areaUtil" type="text" />
+              <label for="areaTotal"> Área total</label>
+              <input id="areaTotal" name="areaTotal" type="text" />
+            </div>
+          </fieldset>
+
+          <fieldset class="localizacao">
+            <legend class="">Localização do imóvel</legend>
+
+            <div class="input-block">
+              <label for="cep">CEP</label>
+              <input id="cep" name="cep" type="text" required />
+            </div>
+
+            <div class="input-block">
+              <label for="logradouro">Logradouro</label>
+              <input id="logradouro" name="logradouro" type="text" required />
+            </div>
+
+            <div class="input-block">
+              <label for="bairro">Bairro</label>
+              <select id="bairro" name="bairro" required>
+                <option label="Todos os bairros" value="Todos_os_bairros"></option>
+                <option label="Ipanema" value="Ipanema"></option>
+                <option label="Guarujá" value="Guarujá"></option>
+                <option label="Cavalhada" value="Cavalhada"></option>
+                <option label="Tristeza" value="Tristeza"></option>
+                <option label="Ponta Grossa" value="Ponta Grossa"></option>
+              </select>
+            </div>
+          </fieldset>
+        </div>
+        <fieldset class="">
+          <div class="map-container">
+            <div id="mapid">
+              <script src=/scripts/map-cadastrar-imovel.js></script>
+            </div>
+            <input type="hidden" name="lat">
+            <input type="hidden" name="lng">
+            <footer>
+              <a href="">Clique no mapa para adicionar a localização</a>
+            </footer>
+          </div>
+        </fieldset>
+
+        <div class="duas-colunas-30-70">
+          <fieldset class="">
+            <legend class="">Valores</legend>
+
+            <div class="input-block">
+              <label for="venda">Venda</label>
+              <input id="venda" name="venda" type="text" required />
+            </div>
+
+            <div class="input-block">
+              <label for="condominio">Condomínio</label>
+              <input id="condominio" name="condominio" type="text">
+            </div>
+
+            <div class="input-block">
+              <label for="iptu">IPTU</label>
+              <input id="iptu" name="iptu" type="text">
+            </div>
+
+          </fieldset>
+
+          <fieldset class="descricao">
+            <legend class="">Código, título e descrição do anúncio</legend>
+            <div class="input-block">
+              <label for="codigo">Código</label>
+              <input id="codigo" name="codigo" type="text" required />
+            </div>
+
+            <div class="input-block">
+              <label for="titulo">Título</label>
+              <input id="titulo" name="titulo" type="text" required />
+            </div>
+
+            <div class="input-block">
+              <label for="descricao">Descrição <span> Máximo 500 caracteres</span></label>
+              <textarea id="descricao" name="descricao" required></textarea>
+            </div>
+          </fieldset>
+        </div>
+
+        <fieldset class="">
+          <legend class="">Fotos do imóvel</legend>
+
+          <div class="input-block">
+            <label for="fotos">Foto</label>
+
+            <div class="fotos-upload" id="fotos">
+              <div class="new-upload">
+                <input 
+                  name="fotos" 
+                  placeholder="Cole o link da foto aqui" 
+                  required
+                  type= "url" 
+                  />
+                <span onclick="deleteField(event)">
+                  <img 
+                  src="/images/remove-file.svg" 
+                  alt="Remover foto"
+                  />
+                </span>
+              </div>
+            </div>
+
+            <button onclick="addPhotoField()"
+            type="button">
+              <img src="/images/add-file.svg" alt="Nova imagem" />
+            </button>
+          </div>
+
+          <button type="submit" class="save-button">
+            Salvar imóvel
+          </button>
+        </fieldset>
+      </form>
+    </main>
+  </div>
+  <script src=/scripts/cadastrar-imovel.js></script>
+</body>
+
+</html>

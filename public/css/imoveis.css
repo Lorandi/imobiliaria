@@ -1,0 +1,153 @@
+imoveis-container{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.card-imoveis{    
+    
+    margin-top: 3rem;
+    padding: 2rem;
+    font: 500 2rem/1 "Ubuntu", "sans-serif";
+    color: white; 
+    box-shadow: #777777 2px 2px 10px;
+}
+.resumo-imoveis{
+    display:flex;
+    flex-direction:column; 
+    justify-content: space-between;   
+}
+
+.resumo-imoveis h2{
+    margin: 1rem auto;
+    color: black;
+}
+
+.resumo-imoveis h3{
+    margin: 1rem auto;
+    color: white;
+    font: 400 2rem/1 "Ubuntu", "sans-serif";
+}
+
+.resumo-imoveis h4{
+    margin: 1rem auto; 
+    color: white;
+    font: 400 2rem/1 "Ubuntu", "sans-serif";
+    
+    text-align: left;
+}
+
+.infos{
+    /*Propriedade do layout - position, float, clear, display*/
+    display: flex;
+    flex-direction:column;
+    
+    /*Propriedade da modelagem - width, height, margin, padding */
+    width: 100%;
+    margin: 1rem auto;
+    
+
+    /*Propriedade visuais - color, background, border, box-shadow */
+    background: rgb(255,255,255);
+    border: 1px solid #dde3f0;
+    border-radius: 1rem; 
+    border:1px solid #ffffff;
+    box-shadow: #777777 2px 2px 10px;
+
+    /*Propriedade tipográfocas - font-size, font-family, text-align, text-transform */
+    
+
+    /*Outras Propriedade - cursor, overflow, index */ 
+    align-self: end;   
+}
+
+.mais-infos{
+    display: flex;
+    width:auto;    
+    gap: 10%;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;     
+}
+
+
+
+
+.botao-mais-infos{
+    /*Propriedade do layout - position, float, clear, display*/
+    display: grid; 
+    align-items: center;      
+
+    /*Propriedade da modelagem - width, height, margin, padding */
+    width: auto;
+    height: 6rem;
+    margin:1rem auto;
+    padding:1rem; 
+
+    /*Propriedade visuais - color, background, border, box-shadow */
+    background-color: #7cb3ac;
+    border:none;
+    border-radius: 1rem; 
+
+    border:1px solid #999999;
+    box-shadow: #777777 2px 2px 5px;    
+    
+    /*Propriedade tipográfocas - font-size, font-family, text-align, text-transform */
+    font: 400 2rem/1 "Ubuntu", "sans-serif";
+    text-align: center; 
+
+     /*Outras Propriedade - cursor, overflow, index */
+     transition: background-color .2s;
+     text-decoration: none; 
+     cursor:pointer       
+     
+}
+.botao-mais-infos:hover{
+    background-color:  #b7d3ac;
+    box-shadow: #777777 1px 1px 3px; 
+   }
+
+ #whatsapp{
+    height: 6rem;
+    transition: 0.2s;
+    background: rgb(37,211,102);
+    border: 1px solid rgb(37,211,102);
+    border-radius: 6rem;
+    box-shadow: #777777 2px 2px 5px; 
+}
+
+#whatsapp:hover{       
+    opacity: 0.9;
+    box-shadow: #777777 1px 1px 1px;
+}   
+
+@media (min-width: 760px) {
+    
+    .card-imoveis { 
+      display: grid;
+      grid-template-columns: 45% 55%;
+      justify-content: space-between;
+    }
+
+    .infos{
+        /*Propriedade do layout - position, float, clear, display*/
+    display: flex;
+    flex-direction:row;        
+    }
+
+    .container-infos{
+        width: auto;             
+        margin:auto;        
+    }   
+
+   
+}
+
+  /*Propriedade do layout - position, float, clear, display*/  
+
+  /*Propriedade da modelagem - width, height, margin, padding */  
+
+  /*Propriedade visuais - color, background, border, box-shadow */ 
+
+  /*Propriedade tipográfocas - font-size, font-family, text-align, text-transform */  
+
+  /*Outras Propriedade - cursor, overflow, index */     

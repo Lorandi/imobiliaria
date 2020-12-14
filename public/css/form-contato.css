@@ -1,0 +1,50 @@
+.form-contato{
+    width: 100%;
+    height: 42rem;
+
+
+    align-items: center;
+    background-color: #ddeedd;    
+    padding: 1rem;    
+    border:none;
+    border-radius: 1rem;
+}
+
+.formulario-contato input{
+    width: 100%;
+    height: 3rem;
+    padding: 2rem 0;
+    margin:0.5rem 0;
+    text-indent: 1rem;
+    font: 400 1.7rem/2 "Ubuntu", "sans-serif";
+
+}
+
+.textarea-mensagem input{
+    width: 100%;
+    height: 3rem;
+    margin:auto;
+    font: 600 1.8rem/2 "Ubuntu", "sans-serif";
+}
+
+.textarea-mensagem textarea{
+    width: 100%;    
+    padding: 1rem 0.5rem;
+    margin:0.5rem 0 0rem;
+    text-indent: 1rem;
+    font: 400 1.5rem/1 "Ubuntu", "sans-serif";
+}
+
+.botao-enviar{
+    box-shadow: #777777 2px 2px 3px;
+    cursor: pointer;
+}
+
+.botao-enviar:hover{
+    box-shadow: #777777 1px 1px 1px;
+    cursor: pointer;
+}
+     
+
+    
+    
